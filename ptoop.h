@@ -44,3 +44,4 @@ void *pget(prototype *p, char *identifier);
 #define method(pt, ret_type, identifier) ptmethod(pt, ret_type, #identifier)
 #define access(pt, type, identifier) ptaccess(pt, type, #identifier)
 #define apply(pt, ret_type, identifier, ...) ptapply(pt, ret_type, #identifier __VA_OPT__(,) __VA_ARGS__)
+#define call(pt, identifier, ...) identifier(pt __VA_OPT__(,) __VA_ARGS__)

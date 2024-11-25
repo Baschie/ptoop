@@ -48,9 +48,13 @@ prototype *File(prototype *pt, char *path)
 }
 ```
 The first argument of `field` is the object to which the field is added.
+
 The second argument is the type of the field.
+
 The third argument is the identifier used to refer to that field.
+
 The fourth argument is optional and let's you specify a clean-up function that will be called on that field when its parent object is freed. Do not specify a clean-up function(Not even `NULL`) for non-pointer types such as `int`, `double`, etc. It's better that you use `NULL` as the clean-up function for pointer types that you don't want to be freed instead of leaving it out to prevent unnecessary boxing.
+
 Simply assign the result of a macro a value to initialize it.
 
 #### Working with data fields
@@ -208,5 +212,6 @@ for (int i = 0; i < 1000; i++) {
     char a[7];
     sprintf(a, "car%d", i);
     ptapply(ptaccess(pt, prototype *, a), void, "print");
-}pfree(pt);
+}
+pfree(pt);
 ```
